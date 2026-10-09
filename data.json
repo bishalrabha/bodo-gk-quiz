@@ -1,0 +1,132 @@
+{
+  "assam": {
+    "titleEn": "Assam GK",
+    "titleBodo": "आसामनि गियान",
+    "topics": [
+      {
+        "id": "stadiums",
+        "titleEn": "Important Stadiums in Assam",
+        "titleBodo": "आसामनि मख'जाथाव गेलेग्रा फोथारफोर (Stadiums)",
+        "descEn": "Assam boasts several cricket and multi-purpose stadiums hosting national and state level games.",
+        "descBodo": "आसाम आव गोबां मख'जाथाव गेलेग्रा फोथार दं जेराव क्रिकेट आरो गुबुन गुबुन हादरसानि गेलेनायफोर खुंनाय जायो।",
+        "headersEn": ["S. No.", "Stadium Name", "Location"],
+        "headersBodo": ["फारि", "गेलेग्रा फोथारनि मुं", "थावनि"],
+        "rows": [
+          ["1.", "Assam Cricket Association Stadium (Barsapara)", "Guwahati"],
+          ["2.", "Indira Gandhi Athletic Stadium (Sarusajai)", "Guwahati"],
+          ["3.", "Jawaharlal Nehru Stadium", "Guwahati"],
+          ["4.", "Jorhat District Sports Association Ground", "Jorhat"],
+          ["5.", "Satindra Mohan Dev Stadium", "Silchar"]
+        ],
+        "quiz": [
+          {
+            "qEn": "In which city is the Barsapara Cricket Stadium located?",
+            "qBodo": "बारसापारा क्रिकेट गेलेग्रा फोथारा बबे सहराव दं?",
+            "o": ["Jorhat", "Guwahati", "Dibrugarh", "Silchar"],
+            "a": 1,
+            "factEn": "Barsapara Cricket Stadium (ACA Stadium) is located in Guwahati.",
+            "factBodo": "बारसापारा क्रिकेट स्टेडियमआ गुवाहाटीयाव दं।"
+          },
+          {
+            "qEn": "Indira Gandhi Athletic Stadium is situated at which place?",
+            "qBodo": "इंदिरा गान्धी एथलेटिक स्टेडियमआ बबे जायगायाव दं?",
+            "o": ["Sarusajai, Guwahati", "Club Road, Jorhat", "Judges Field", "Nagaon"],
+            "a": 0,
+            "factEn": "It is situated at Sarusajai, Guwahati and hosted the 2007 National Games.",
+            "factBodo": "बेयो गुवाहाटीनि सोरुसजाइयाव दं।"
+          }
+        ]
+      },
+      {
+        "id": "parks",
+        "titleEn": "Important National Parks of Assam",
+        "titleBodo": "आसामनि मख'जाथाव हाग्रामा पार्कफोर (National Parks)",
+        "descEn": "Assam is home to 7 National Parks famous for endangered one-horned rhinoceros and rich biodiversity.",
+        "descBodo": "आसाम आव 7 ता हाग्रामा पार्क दं जाय से-गं गोनां गोर्बो आरो जिब-जुनातनि थाखाय मुलुग नांथाव।",
+        "headersEn": ["S. No.", "National Park", "Key Wildlife / Specialty"],
+        "headersBodo": ["फारि", "हाग्रामा पार्क", "मख'जाथाव जिब"],
+        "rows": [
+          ["1.", "Kaziranga National Park", "One-horned Rhino (UNESCO Site)"],
+          ["2.", "Manas National Park", "Wild Buffalo, Pygmy Hog (UNESCO Site)"],
+          ["3.", "Dibru-Saikhowa National Park", "Feral Horses, White-winged Wood Duck"],
+          ["4.", "Nameri National Park", "Elephants, Hornbill, Tiger Reserve"],
+          ["5.", "Dihing Patkai National Park", "Amazon of the East (Rainforest)"],
+          ["6.", "Raimona National Park", "Golden Langur (Kokrajhar, BTR)"]
+        ],
+        "quiz": [
+          {
+            "qEn": "Which National Park in Kokrajhar (BTR) is famous for Golden Langurs?",
+            "qBodo": "कक्राझार (BTR) आव थानाय बबे हाग्रामा पार्कआ सनावला मोख्रेबनि थाखाय मुंथां?",
+            "o": ["Kaziranga", "Raimona", "Nameri", "Orang"],
+            "a": 1,
+            "factEn": "Raimona National Park in Kokrajhar is home to the famous Golden Langur.",
+            "factBodo": "कक्राझारनि रायमना हाग्रामा पार्कआ सनावला मोख्रेबनि थाखाय मुंथां।"
+          }
+        ]
+      }
+    ]
+  },
+  "arunachal": {
+    "titleEn": "Arunachal Pradesh GK",
+    "titleBodo": "अरुणाचल प्रदेशनि गियान",
+    "topics": [
+      {
+        "id": "arunachal_parks",
+        "titleEn": "National Parks of Arunachal Pradesh",
+        "titleBodo": "अरुणाचल प्रदेशनि हाग्रामा पार्कफोर",
+        "descEn": "Arunachal Pradesh features notable national parks home to rare biodiversity and wildlife.",
+        "descBodo": "अरुणाचल प्रदेश आव गोबां मख'जाथाव हाग्रामा पार्क दं।",
+        "headersEn": ["S. No.", "National Park", "Specialty"],
+        "headersBodo": ["फारि", "हाग्रामा पार्क", "मख'जाथाव"],
+        "rows": [
+          ["1.", "Namdapha National Park", "4 big cat species (Tiger, Leopard, Snow Leopard, Clouded Leopard)"],
+          ["2.", "Mouling National Park", "Red Panda, Takin"]
+        ],
+        "quiz": [
+          {
+            "qEn": "Namdapha National Park is located in which state?",
+            "qBodo": "नामदाफा हाग्रामा पार्कआ बबे हादरसायाव दं?",
+            "o": ["Assam", "Arunachal Pradesh", "Meghalaya", "Manipur"],
+            "a": 1,
+            "factEn": "Namdapha National Park is located in Changlang district of Arunachal Pradesh.",
+            "factBodo": "नामदाफा हाग्रामा पार्कआ अरुणाचल प्रदेशआव दं।"
+          }
+        ]
+      }
+    ]
+  },
+  "world": {
+    "titleEn": "World GK",
+    "titleBodo": "मुलुगनि गियान",
+    "topics": [
+      {
+        "id": "wonders",
+        "titleEn": "Seven Wonders of the World",
+        "titleBodo": "बुमुलुंनि 7 ता गोमोथाव मुवाफोर",
+        "descEn": "A list of the New Seven Wonders of the World chosen through a global poll.",
+        "descBodo": "गासै मुलुगनि भोट सायखनायजों बासिलायनाय बुमुलुंनि 7 ता गोमोथाव जायगाफोर।",
+        "headersEn": ["S. No.", "Wonder Name", "Country Location"],
+        "headersBodo": ["फारि", "मुवा / जायगानि मुं", "थावनि हादर"],
+        "rows": [
+          ["1.", "Great Wall of China", "China"],
+          ["2.", "Petra", "Jordan"],
+          ["3.", "Colosseum", "Rome, Italy"],
+          ["4.", "Chichen Itza", "Mexico"],
+          ["5.", "Machu Picchu", "Peru"],
+          ["6.", "Taj Mahal", "Agra, India"],
+          ["7.", "Christ the Redeemer", "Rio de Janeiro, Brazil"]
+        ],
+        "quiz": [
+          {
+            "qEn": "In which country is the historic site of Machu Picchu located?",
+            "qBodo": "माचु पिचुवा बबे हादराव दं?",
+            "o": ["Mexico", "Peru", "Brazil", "Chile"],
+            "a": 1,
+            "factEn": "Machu Picchu is an Inca citadel situated in Peru.",
+            "factBodo": "माचु पिचुवा पेरु हादराव दं।"
+          }
+        ]
+      }
+    ]
+  }
+}
