@@ -1,150 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bodo GK Quiz</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;padding:20px 14px;background:#edf4ef;color:#173d32;font-family:Arial,sans-serif}
-.card{max-width:500px;margin:auto;background:white;border-radius:20px;overflow:hidden;box-shadow:0 5px 22px #0001}
-header{background:#173d32;color:white;text-align:center;padding:26px 12px}
-header h1{margin:0 0 8px}
-header p{margin:0;color:#d6e8dc}
-.content{padding:22px}
-.muted{color:#65786d;font-size:14px}
-.bar{height:7px;background:#e5eee8;border-radius:9px;margin:12px 0 22px}
-#fill{height:7px;width:20%;background:#29956a;border-radius:9px}
-h2{font-size:21px;line-height:1.5}
-.option{display:block;width:100%;padding:15px;margin:10px 0;text-align:left;border:2px solid #dfe8e1;border-radius:12px;background:white;color:#173d32;font-size:16px}
-.option.selected{border-color:#3478ef;background:#edf4ff}
-.option.correct{border-color:#22965e;background:#e4f7eb}
-.option.wrong{border-color:#d84b4b;background:#fff0f0}
-button.main{width:100%;padding:15px;margin-top:15px;background:#173d32;color:white;border:0;border-radius:12px;font-size:16px;font-weight:bold}
-#feedback{line-height:1.6;margin-top:14px}
-footer{text-align:center;color:#65786d;font-size:12px;padding:0 10px 20px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GK Study Portal & Quiz</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="card">
-<header>
-<h1>🌿 BODO GK QUIZ</h1>
-<p>Learn Something New Every Day</p>
-</header>
-<div class="content" id="quiz">
-<div class="muted" id="progress"></div>
-<div class="bar"><div id="fill"></div></div>
-<h2 id="question"></h2>
-<div id="options"></div>
-<div id="feedback" aria-live="polite"></div>
-<button class="main" id="action">Check Answer</button>
-</div>
-<footer>Daily GK • Learn • Practice • Improve</footer>
+
+<!-- Animated Splash / Loading Screen -->
+<div id="splashScreen" class="splash-screen">
+  <div class="splash-content">
+    <div class="splash-logo">GK</div>
+    <h2 class="splash-title">State & Global GK</h2>
+    <div class="splash-bodo-subtitle">बर‌' राव आव</div>
+    <div class="splash-loader"></div>
+    <p class="splash-sub">Loading Study Materials...</p>
+  </div>
 </div>
 
-<script>
-const questions = [
-{
-q:"Which animal is Kaziranga National Park famous for?",
-o:["Royal Bengal Tiger","One-horned Rhinoceros","Red Panda","Snow Leopard"],
-a:1,
-e:"Kaziranga National Park in Assam is famous for the Indian one-horned rhinoceros."
-},
-{
-q:"What is India's national flag commonly called?",
-o:["Tiranga","Ashoka Flag","Vijay Flag","Bharat Flag"],
-a:0,
-e:"Tiranga refers to India's national flag with saffron, white and green bands."
-},
-{
-q:"Which is the largest ocean on Earth?",
-o:["Atlantic Ocean","Indian Ocean","Arctic Ocean","Pacific Ocean"],
-a:3,
-e:"The Pacific Ocean is the largest ocean on Earth."
-},
-{
-q:"Which organ pumps blood around the human body?",
-o:["Lungs","Brain","Heart","Kidneys"],
-a:2,
-e:"The heart pumps blood through the body's circulatory system."
-},
-{
-q:"Which star is at the centre of our solar system?",
-o:["Sirius","The Sun","Polaris","The Moon"],
-a:1,
-e:"The Sun is the star at the centre of our solar system."
-}
-];
+<!-- Header -->
+<div class="top-bar">
+  <div class="top-left">
+    <button id="backBtn" class="back-btn" onclick="handleBack()">←</button>
+    <h1 id="screenTitle" class="app-title">State & Global GK</h1>
+  </div>
+  <button id="langBtn" class="lang-toggle-btn" onclick="toggleLanguage()">बर' राव</button>
+</div>
 
-let current=0;
-let selected=-1;
-let locked=false;
-let score=0;
+<div class="main-container">
 
-const $=id=>document.getElementById(id);
+  <!-- Level 1: Main Category Selection -->
+  <div id="viewLevel1">
+    <div class="search-wrap">
+      <input type="text" id="mainSearch" class="search-input" placeholder="Search state, world topic..." onkeyup="filterItems()">
+    </div>
 
-function render(){
- const q=questions[current];
- selected=-1;
- locked=false;
- $("progress").textContent="Question "+(current+1)+" of "+questions.length;
- $("fill").style.width=((current+1)/questions.length*100)+"%";
- $("question").textContent=q.q;
- $("feedback").textContent="";
- $("options").innerHTML="";
- q.o.forEach((option,i)=>{
-   const b=document.createElement("button");
-   b.className="option";
-   b.textContent=String.fromCharCode(65+i)+". "+option;
-   b.onclick=()=>{
-     if(locked)return;
-     selected=i;
-     document.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));
-     b.classList.add("selected");
-   };
-   $("options").appendChild(b);
- });
- $("action").textContent="Check Answer";
-}
+    <div class="section-label" id="lbl-section-main">Main Categories</div>
+    <div class="card-feed">
+      <div class="topic-card" onclick="openCategory('states')">
+        <div class="topic-card-body">
+          <h4 id="lbl-cat-states">Indian States GK (भारतनि हादरसाफोर)</h4>
+          <span id="desc-cat-states">Assam, Arunachal, Meghalaya, etc.</span>
+        </div>
+        <div class="card-arrow-icon">›</div>
+      </div>
 
-$("action").onclick=()=>{
- if(current>=questions.length){
-   current=0;score=0;render();return;
- }
- if(!locked){
-   if(selected<0){
-     $("feedback").textContent="Please select an answer first.";
-     return;
-   }
-   locked=true;
-   const q=questions[current];
-   const buttons=document.querySelectorAll(".option");
-   buttons[q.a].classList.add("correct");
-   if(selected===q.a){
-     score++;
-     $("feedback").textContent="✅ Correct! "+q.e;
-   }else{
-     buttons[selected].classList.add("wrong");
-     $("feedback").textContent="❌ Not quite. "+q.e;
-   }
-   $("action").textContent=current===questions.length-1?"See Final Score":"Next Question";
- }else{
-   current++;
-   if(current<questions.length){
-     render();
-   }else{
-     $("progress").textContent="Quiz Completed!";
-     $("fill").style.width="100%";
-     $("question").textContent="Your score: "+score+" / "+questions.length;
-     $("options").innerHTML="";
-     $("feedback").textContent=score===5?"Excellent! All answers correct.":"Good effort! Practice again to improve your score.";
-     $("action").textContent="Play Again";
-     current=questions.length;
-   }
- }
-};
+      <div class="topic-card" onclick="openCategory('world')">
+        <div class="topic-card-body">
+          <h4 id="lbl-cat-world">World GK (मुलुगनि गियान)</h4>
+          <span id="desc-cat-world">Wonders, Oceans, Geography, Sports</span>
+        </div>
+        <div class="card-arrow-icon">›</div>
+      </div>
+    </div>
+  </div>
 
-render();
-</script>
+  <!-- Level 1.5: States List (Assam, Arunachal, etc.) -->
+  <div id="viewLevelStates" style="display:none;">
+    <div class="section-label" id="lbl-states-list-title">Select State</div>
+    <div class="card-feed" id="statesContainer"></div>
+  </div>
+
+  <!-- Level 2: Sub-Topics List (Stadiums, Parks, etc.) -->
+  <div id="viewLevel2" style="display:none;">
+    <div class="section-label" id="lbl-subtopic-title">All Topics</div>
+    <div class="card-feed" id="topicsContainer"></div>
+  </div>
+
+  <!-- Level 3: Article & Table View -->
+  <div id="viewLevel3" class="article-box">
+    <span class="tag-note">NOTES</span>
+    <h2 id="artTitle" class="art-heading">Title</h2>
+    <div id="artDesc" class="art-paragraph">Description</div>
+    <div class="table-responsive" id="tableContainer"></div>
+
+    <div class="quiz-callout">
+      <span id="quizCalloutTxt">Test your knowledge with quick quiz</span>
+      <button class="btn-green-cta" onclick="startTopicQuiz()">Take Quiz</button>
+    </div>
+  </div>
+
+  <!-- Level 4: Quiz Mode -->
+  <div id="viewLevel4" class="quiz-box">
+    <div class="quiz-meta">
+      <span id="qProgress">Question 1/2</span>
+      <span id="qTimer">⏱️ 15s</span>
+    </div>
+    <div id="qText" class="q-title">Question goes here...</div>
+    <div id="qOptions"></div>
+    <div id="qFact" class="fact-card"></div>
+    <button id="qNextBtn" class="btn-next-action" onclick="nextQuestion()">Next Question</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
